@@ -1,4 +1,5 @@
 from pprint import pprint
+from logger_path import decorator
 cook_book = {}
 lister_1 = []
 
@@ -12,9 +13,10 @@ with open("recipes.txt", encoding="utf8") as file:
             cook_book[dish].append({'ingredient_name': ingredients[0],'quantity': ingredients[1], 'measure': ingredients[2]})
         file.readline()
     pprint(cook_book)
-
+path = 'logger.txt'
+@decorator(path)
 def get_shop_list_by_dishes(dishes, count_persons):
-    a = dishes
+
     ingredient = {}
 
     for dish in cook_book:
